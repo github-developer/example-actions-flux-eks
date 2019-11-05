@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="zen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zen</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .container {
+            font-family: monospace;
+            display: block;
+            max-width: 60rem;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <pre id="content" class="container">
+        MMM.           .MMM
+        MMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMM      ____________________________
+       MMMMMMMMMMMMMMMMMMMMM    |                            |
+      MMMMMMMMMMMMMMMMMMMMMMM   | Keep it logically awesome. |
+     MMMMMMMMMMMMMMMMMMMMMMMM   |_   ________________________|
+     MMMM::- -:::::::- -::MMMM    |/
+      MM~:~ 00~:::::~ 00~:~MM
+ .. MMMMM::.00:::+:::.00::MMMMM ..
+       .MM::::: ._. :::::MM.
+          MMMM;:::::;MMMM
+   -MM        MMMMMMM
+   ^  M+     MMMMMMMMM
+       MMMMMMM MM MM MM
+            MM MM MM MM
+            MM MM MM MM
+         .~~MM~MM~MM~MM~~.
+      ~~~~MM:~MM~~~MM~:MM~~~~
+     ~~~~~~==~==~~~==~==~~~~~~
+      ~~~~~~==~==~==~==~~~~~~
+          :~==~==~==~==~~
+    </pre>
+    <script>
+        // GET /zen
+        (function () {
+            document.addEventListener("DOMContentLoaded", function (event) {
+                req = new XMLHttpRequest();
+
+                req.onreadystatechange = function process() {
+                    if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
+                        document.getElementById("content").innerText = req.responseText;
+                    }
+                };
+
+                req.open("GET", "https://api.github.com/octocat", true);
+                req.send();
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
