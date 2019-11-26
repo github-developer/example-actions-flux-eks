@@ -2,6 +2,8 @@
 
 An example workflow that uses [GitHub Actions](https://help.github.com/en/categories/automating-your-workflow-with-github-actions) to build [a static website](app/site/) into a Docker container, push that image to Amazon Elastic Container Registry, and uses [Flux](https://www.weave.works/oss/flux/) to automatically update an existing Amazon Elastic Kubernetes Service cluster with that image.
 
+See this [technical blog post](https://www.weave.works/blog/gitops-with-github-actions-eks) which uses this code for full step-by-step instructions.
+
 ## Prerequisites
 
 1. Create an EKS cluster, e.g. using [`eksctl create cluster`](https://eksctl.io/)
