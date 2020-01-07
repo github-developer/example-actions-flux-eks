@@ -7,7 +7,7 @@ An example workflow that uses [GitHub Actions](https://help.github.com/en/catego
 1. Create an EKS cluster, e.g. using [`eksctl create cluster`](https://eksctl.io/)
 1. Set up Flux on the cluster, e.g. using [this guide](https://docs.fluxcd.io/en/latest/tutorials/get-started.html). Note that you must set `--git-path` to point to where your manifests are. For example:
 ```bash
-export GHUSER=<github user account where your fork lives>
+export GHOWNER=<github user or organization account where your fork lives>
 export GHORG=<github org if repo is in an org, othewise github user again>
 export GHREPO=example-actions-flux-eks
 
