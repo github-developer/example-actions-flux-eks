@@ -16,7 +16,7 @@ kubectl create ns flux
 fluxctl install \
     --git-user=${GHUSER} \
     --git-email=${GHUSER}@users.noreply.github.com \
-    --git-url=git@github.com:${GHORG}/${GHREPO} \
+    --git-url=git@github.com:${GHOWNER}/${GHREPO} \
     --git-path=manifests \
     --namespace=flux | kubectl apply -f -
 ```
