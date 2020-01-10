@@ -9,7 +9,7 @@ See this [technical blog post](https://www.weave.works/blog/gitops-with-github-a
 1. Create an EKS cluster, e.g. using [`eksctl create cluster`](https://eksctl.io/)
 1. Set up Flux on the cluster, e.g. using [this guide](https://docs.fluxcd.io/en/latest/tutorials/get-started.html). Note that you must set `--git-path` to point to where your manifests are. For example:
 ```bash
-export GHUSER=<github user account where your fork lives>
+export GHOWNER=<github user or organization account where your fork lives>
 export GHREPO=example-actions-flux-eks
 
 kubectl create ns flux
@@ -17,7 +17,7 @@ kubectl create ns flux
 fluxctl install \
     --git-user=${GHUSER} \
     --git-email=${GHUSER}@users.noreply.github.com \
-    --git-url=git@github.com:${GHUSER}/${GHREPO} \
+    --git-url=git@github.com:${GHOWNER}/${GHREPO} \
     --git-path=manifests \
     --namespace=flux | kubectl apply -f -
 ```
