@@ -7,7 +7,7 @@ See this [technical blog post](https://www.weave.works/blog/gitops-with-github-a
 ## Prerequisites
 
 1. Create an EKS cluster, e.g. using [`eksctl create cluster`](https://eksctl.io/)
-1. Set up Flux on the cluster, e.g. using [this guide](https://docs.fluxcd.io/en/latest/tutorials/get-started.html). Note that you must set `--git-path` to point to where your manifests are. For example:
+2. Set up Flux on the cluster, e.g. using [this guide](https://docs.fluxcd.io/en/1.20.0/get-started). Note that you must set `--git-path` to point to where your manifests are. For example:
 ```bash
 export GHOWNER=<github user or organization account where your fork lives>
 export GHREPO=example-actions-flux-eks
@@ -21,9 +21,9 @@ fluxctl install \
     --git-path=manifests \
     --namespace=flux | kubectl apply -f -
 ```
-1. Give Flux read/write access to the GitHub repository [using a deploy key](https://docs.fluxcd.io/en/latest/tutorials/get-started.html#giving-write-access)
-1. Create a repository called `example-eks` in [Amazon Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html), in the same AWS region as the EKS cluster
-1. Update the image in [`deployment.yml`](manifests/deployment.yml) to use your `REGISTRY`, `IMAGE`, and `TAG`. `TAG` will be replaced by Flux as new images are available in the registry.
+3. Give Flux read/write access to the GitHub repository [using a deploy key](https://docs.fluxcd.io/en/1.20.0/tutorials/get-started/#giving-write-access)
+4. Create a repository called `example-eks` in [Amazon Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html), in the same AWS region as the EKS cluster
+5. Update the image in [`deployment.yml`](manifests/deployment.yml) to use your `REGISTRY`, `IMAGE`, and `TAG`. `TAG` will be replaced by Flux as new images are available in the registry.
 
 ## Secrets
 
